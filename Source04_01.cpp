@@ -1,12 +1,16 @@
 #include<iostream>
+#include<math.h>	//дл€ abs()
 using namespace std;
 
-long long Exponent(int n, int e)
+double Exponent(int _num, int _exp)
 {
-	long long exp = n;
-	for (int i = 1; i < e; i++)
-		exp *= n;
-	return exp;
+	double exp = _num;
+	for (int i = 1; i < abs(_exp); i++)	//цикл визначенн€ спетен€ числа
+		exp *= _num;
+		
+	if (_exp < 0)						//€кщо степiнь вiд"Їмний
+		return 1 / exp;					//повертаЇмо обернене число
+	return exp;								
 }
 
 int main()
@@ -16,11 +20,11 @@ int main()
 	setlocale(LC_ALL, "RUS");
 	int num, exp;
 
-	cout << "¬вед≥ть число ";
+	cout << "¬ведiть число ";
 	cin >> num;
-	cout << "¬вед≥ть степ≥нь ";
+	cout << "¬ведiть степiнь ";
 	cin >> exp;
-	cout << num << " в " << exp << " степен≥ дор≥внюЇ " << Exponent(num, exp) << endl;
+	cout << num << " в степенi " << exp << " дорiвнюЇ " << Exponent(num, exp) << endl;
 
 	system("pause");
 	return 0;
