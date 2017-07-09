@@ -1,47 +1,47 @@
 #include<iostream>
-#include<iomanip> //для функцый setw() і setfill()
+#include<iomanip> //РґР»СЏ С„СѓРЅРєС†С–Р№ setw() С– setfill()
 using namespace std;
 
 void showCard(int _suit, int _num)
 {
-	int filler = 6;																															// заповнення пробілами в функції setw()
-	char upLeftCorner = 218, upRightCorner = 191, horizontalLine = 196, vertivalLine = 179, downLeftCorner = 192, downRightCorner = 217;	//символи контура карти
-	char  charCard[13] = { 'A','2','3','4','5','6','7','8','9','0','J','Q','K' };															//масив назви(номеру) карти
-	_suit += 2;																																//встановлення коду ASCII символа масті
+	int filler = 6;																															// Р·Р°РїРѕРІРЅРµРЅРЅСЏ РїСЂРѕР±С–Р»Р°РјРё РІ С„СѓРЅРєС†С–С— setw()
+	char upLeftCorner = 218, upRightCorner = 191, horizontalLine = 196, vertivalLine = 179, downLeftCorner = 192, downRightCorner = 217;	//СЃРёРјРІРѕР»Рё РєРѕРЅС‚СѓСЂР° РєР°СЂС‚Рё
+	char  charCard[13] = { 'A','2','3','4','5','6','7','8','9','0','J','Q','K' };															//РјР°СЃРёРІ РЅР°Р·РІРё(РЅРѕРјРµСЂСѓ) РєР°СЂС‚Рё
+	_suit += 2;																																//РІСЃС‚Р°РЅРѕРІР»РµРЅРЅСЏ РєРѕРґСѓ ASCII СЃРёРјРІРѕР»Р° РјР°СЃС‚С–
 
 	system("cls");
-	cout << upLeftCorner << setfill(horizontalLine) << setw(8) << upRightCorner << endl;													//верхня лінія
-	if (_num == 10)																															//якщо карта Десятка
+	cout << upLeftCorner << setfill(horizontalLine) << setw(8) << upRightCorner << endl;													//РІРµСЂС…РЅСЏ Р»С–РЅС–СЏ
+	if (_num == 10)																															//СЏРєС‰Рѕ РєР°СЂС‚Р° Р”РµСЃСЏС‚РєР°
 	{
-		filler--;																															//зменшуєм величину автозаповнення
-		cout << vertivalLine << "1" << charCard[_num - 1] << (char)_suit << setfill(' ') << setw(filler) << vertivalLine << endl;			//додатково виводимо "1"
+		filler--;																															//Р·РјРµРЅС€СѓС”Рј РІРµР»РёС‡РёРЅСѓ Р°РІС‚РѕР·Р°РїРѕРІРЅРµРЅРЅСЏ
+		cout << vertivalLine << "1" << charCard[_num - 1] << (char)_suit << setfill(' ') << setw(filler) << vertivalLine << endl;			//РґРѕРґР°С‚РєРѕРІРѕ РІРёРІРѕРґРёРјРѕ "1"
 	}
 	else 
-		cout << vertivalLine << charCard[_num-1] << (char)_suit << setfill(' ') << setw(filler) << vertivalLine << endl;						//якщо карта не Десятка виводимо її назву з масиву
+		cout << vertivalLine << charCard[_num-1] << (char)_suit << setfill(' ') << setw(filler) << vertivalLine << endl;						//СЏРєС‰Рѕ РєР°СЂС‚Р° РЅРµ Р”РµСЃСЏС‚РєР° РІРёРІРѕРґРёРјРѕ С—С— РЅР°Р·РІСѓ Р· РјР°СЃРёРІСѓ
 	cout << vertivalLine << setw(8) << vertivalLine << endl;
 	cout << vertivalLine << setw(8) << vertivalLine << endl;
 	cout << vertivalLine << setw(8) << vertivalLine << endl;
 	cout << vertivalLine << setw(8) << vertivalLine << endl;
 	cout << vertivalLine << setw(8) << vertivalLine << endl;
 	cout << vertivalLine << setw(8) << vertivalLine << endl;
-	if (_num == 10)																															//знову перевіряємо чи карта Десятка
+	if (_num == 10)																															//Р·РЅРѕРІСѓ РїРµСЂРµРІС–СЂСЏС”РјРѕ С‡Рё РєР°СЂС‚Р° Р”РµСЃСЏС‚РєР°
 		cout << vertivalLine<< setfill(' ') << setw(filler) << "1" << charCard[_num - 1] << (char)_suit << vertivalLine << endl;
 	else
 		cout << vertivalLine << setfill(' ') << setw(filler) << charCard[_num - 1] << (char)_suit << vertivalLine << endl;
-	cout << downLeftCorner << setfill(horizontalLine) << setw(8) << downRightCorner << endl;												//нижня лінія
+	cout << downLeftCorner << setfill(horizontalLine) << setw(8) << downRightCorner << endl;												//РЅРёР¶РЅСЏ Р»С–РЅС–СЏ
 
 }
 
 int main()
 {
-	//Написать функцию, выводящую на экран переданную ей игральную карту.	
+	//РќР°РїРёСЃР°С‚СЊ С„СѓРЅРєС†РёСЋ, РІС‹РІРѕРґСЏС‰СѓСЋ РЅР° СЌРєСЂР°РЅ РїРµСЂРµРґР°РЅРЅСѓСЋ РµР№ РёРіСЂР°Р»СЊРЅСѓСЋ РєР°СЂС‚Сѓ.	
 
-	int suit, num;																															//змінна масті і номеру карти
-	while (1)																																//Безкінечний цикл(опціонально)
+	int suit, num;																															//Р·РјС–РЅРЅР° РјР°СЃС‚С– С– РЅРѕРјРµСЂСѓ РєР°СЂС‚Рё
+	while (1)																																//Р‘РµР·РєС–РЅРµС‡РЅРёР№ С†РёРєР»(РѕРїС†С–РѕРЅР°Р»СЊРЅРѕ)
 	{
 		system("cls");
 		cout << "Please enter suit\n1 - Hearts\n2 - Diamonds\n3 - Clubs\n4 - Spades" << endl;
-		cin >> suit;																														//отримання даних масті
+		cin >> suit;																														//РѕС‚СЂРёРјР°РЅРЅСЏ РґР°РЅРёС… РјР°СЃС‚С–
 		if (suit < 1 || suit > 4)
 		{
 			cout << "ERROR: Incorrect suit\n";
@@ -50,16 +50,16 @@ int main()
 		}
 		system("cls");
 		cout << "Enter card\n1 - Ace \n2 - Two\n3 - Three\n4 - Four\n5 - Five\n6 - Six\n7 - Seven\n8 - Eight\n9 - Nine\n10 - Ten\n11 - Jacket\n12 - Quin\n13 - King" << endl;
-		cin >> num;																															//отримання даних номеру
+		cin >> num;																															//РѕС‚СЂРёРјР°РЅРЅСЏ РґР°РЅРёС… РЅРѕРјРµСЂСѓ
 		if (num < 1 || num > 13)
 		{
 			cout << "ERROR: Incorrect card\n";
 			system("pause");
 			exit(2);
 		}
-		showCard(suit, num);																												//виклик функції
+		showCard(suit, num);																												//РІРёРєР»РёРє С„СѓРЅРєС†С–С—
 
-		system("pause");																													//пауза перед повтором циклу
+		system("pause");																													//РїР°СѓР·Р° РїРµСЂРµРґ РїРѕРІС‚РѕСЂРѕРј С†РёРєР»Сѓ
 	}
 	return 0;
 }
