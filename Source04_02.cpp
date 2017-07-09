@@ -3,15 +3,15 @@ using namespace std;
 
 int summary(int _firstNum, int _secondNum)
 {	
-	int sum;										// декларуЇмо зн≥нну sum
-	if (_firstNum > _secondNum)						// €кщо перше число б≥льше за друге - в≥дсортуЇмо
+	int sum;										// декларуЇмо знiнну sum
+	if (_firstNum > _secondNum)						// €кщо перше число бiльше за друге - вiдсортуЇмо
 	{
-		sum = _secondNum;							// використаЇмо зм≥нну sum дл€ зм≥ни м≥сц€ми _firstNum ≥ _secondNum
+		sum = _secondNum;							// використаЇмо змiнну sum дл€ змiни мiсц€ми _firstNum i _secondNum
 		_secondNum = _firstNum;
 		_firstNum = sum;
 	}
 	sum = 0;										// обнул€Їм значенн€ суми
-	for (int i = _firstNum+1; i < _secondNum; i++)	//цикл обчисленн€ суми д≥апазона чисел
+	for (int i = _firstNum+1; i < _secondNum; i++)	//цикл обчисленн€ суми дiапазона чисел
 		sum += i;
 	return sum;
 }
@@ -23,9 +23,9 @@ int main()
 	int firstNum, secondNum;
 	
 	//ќтриманн€ даних
-	cout << "¬вед≥ть перше число ";
+	cout << "¬ведiть перше число ";
 	cin >> firstNum;
-	cout << "¬вед≥ть друге число ";
+	cout << "¬ведiть друге число ";
 	cin >> secondNum;
 	cout << summary(firstNum, secondNum) << endl;
 
