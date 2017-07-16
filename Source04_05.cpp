@@ -1,12 +1,25 @@
 #include<iostream>
 using namespace std;
 
-bool symbolCheck(char _ch)
+//Функція symbolCheck(char _ch) включає в себе код з завдання Source02_02
+void symbolCheck(char _ch)
 {
-	if ((_ch >= 48 && _ch <= 57) || (_ch >= 65 && _ch <= 90) || (_ch >= 97 && _ch <= 122))
-		return true;
-	else
-		return false;
+	if ((int)_ch >= 32 && (int)_ch <= 47)
+		cout << _ch << " is a symbol" << endl;
+	else if ((int)_ch >= 48 && (int)_ch <= 57)
+		cout << _ch << " is a number" << endl;
+	else if ((int)_ch >= 58 && (int)_ch <= 64)
+		cout << _ch << " is a symbol" << endl;
+	else if ((int)_ch >= 65 && (int)_ch <= 90)
+		cout << _ch << " is a capital letter" << endl;
+	else if ((int)_ch >= 91 && (int)_ch <= 96)
+		cout << _ch << " is a symbol" << endl;
+	else if ((int)_ch >= 97 && (int)_ch <= 122)
+		cout << _ch << " is a lowercase letter" << endl;
+	else if ((int)_ch >= 123 && (int)_ch <= 127)
+		cout << _ch << " is a symbol" << endl;
+	else	
+		cout << "ERROR: Can\'t identificate char. Charcode " << (int)_ch << endl;			
 }
 
 int main()
@@ -17,10 +30,7 @@ int main()
 	cout << "Please enter char ";
 	cin >> ch;
 
-	if (symbolCheck(ch))
-		cout << "It\'s an alphabet-number char\n";
-	else
-		cout << "It\'s not an alphabet-number char\nIt\'s a symbol\n";
+	symbolCheck(ch);		
 
 	system("pause");
 	return 0;
