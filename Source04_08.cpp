@@ -2,6 +2,7 @@
 
 using namespace std;
 
+//функція отримує дату у форматі ДЕНЬ МІСЯЦЬ РІК і повертає кількість днів що пройшла від 0.0.0р.
 int amountOfDay(int _day, int _month, int _year)
 {
     int SumOfDay = _year*365 + (_year/4) + _day;
@@ -16,25 +17,30 @@ int amountOfDay(int _day, int _month, int _year)
     case 9:
         SumOfDay+=31; //додаємо серень
     case 8:
-        SumOfDay+=30; //додаємо липень
+        SumOfDay+=31; //додаємо липень
     case 7:
-        SumOfDay+=31; //додаємо червень
+        SumOfDay+=30; //додаємо червень
     case 6:
-        SumOfDay+=30; //додаємо травень
+        SumOfDay+=31; //додаємо травень
     case 5:
-        SumOfDay+=31; //додаємо квітень
+        SumOfDay+=30; //додаємо квітень
     case 4:
         SumOfDay+=31; //додаємо березень
     case 3:
-        SumOfDay+=31; //додаємо лютий(28 днів)
+        SumOfDay+=28; //додаємо лютий(28 днів)
     case 2:
         SumOfDay+=31; //додаємо  //додаємо січень
     case 1: break;
     }
+    if (!(_year%4) && (_month<3))
+        SumOfDay--;
+    cout << "Debug: SumOfDay: " << SumOfDay << endl;
     return SumOfDay;
 }
 
-
+//Функція отримує дві дати. Почергово для кожної дати
+//викликає функцію яка повертає кількість днів
+//і обчислює різницю
 void dateFunc(int _fDay, int _fMonth, int _fYear, int _sDay, int _sMonth, int _sYear)
 {
     int firstSumOfDay = amountOfDay(_fDay,_fMonth,_fYear);
